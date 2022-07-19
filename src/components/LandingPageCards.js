@@ -1,7 +1,7 @@
 import React from "react"; 
-import uvlight from "../images/uvlight.jpg"
-import landslides from "../images/landslides.jpg"
-import floods from "../images/floods.jpg"
+import uvlight from "../assets/images/uvlight.jpg"
+import landslides from "../assets/images/landslides.jpg"
+import floods from "../assets/images/floods.jpg"
 import { Row, Col, Button, Card } from "react-bootstrap";
 
 export default function LandingPageCards(props) { 

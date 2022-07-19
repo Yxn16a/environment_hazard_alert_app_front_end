@@ -1,6 +1,6 @@
 const date = new Date(); 
 
-export default [
+const uvData = [
     {
         id: 1,
         initialtime: date.getHours(),
@@ -9,3 +9,5 @@ export default [
         measure:10
     }
 ]
+
+module.exports= uvData

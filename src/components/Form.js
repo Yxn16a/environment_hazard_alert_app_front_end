@@ -1,31 +1,45 @@
 import React from "react"; 
 import { Button, Form, Col, Row } from 'react-bootstrap';
-//import { Prev } from "react-bootstrap/esm/PageItem";
+const { Provinces, Districts, Sectors,Cells} = require('rwanda')
 
 export default function FormData() {
-
+  const Todaysdate = new Date(); 
   const [formData, setFormData] = React.useState({
     province: "", 
     district: "", 
     sector: "", 
-    cell:""
+    cell: "",
+    startDate: Todaysdate,
+    endDate:""
   })
+  let district; 
+  let sectors; 
+  let cell; 
 
-  //const [show, setShow] = React.useState(true)
+  const provinces = Provinces().map(prov => <option value={prov} key={prov}>{prov}</option>)
   
-  // function selectProvince() { 
-  //   setShow((prev)=>{ 
-  //     return {
-  //       ...prev, 
+  function selectDistrict(province) {
+    if (province) {
+      return district = Districts(province).map(district => <option value={district} key={district}>{district}</option>);
+    }
+  }
 
-  //     }
-  //   })
-  // }
+ function selectSectors(province, district) {
+    if (province && district) {
+      return sectors =Sectors( province,district ).map(sector => <option value={sector} key={sector}>{sector}</option>)
+    }   
+  }
+
+  function selectCell(province, distric, sector) {
+    if (province && distric && sector) { 
+      return cell = Cells(province, distric, sector).map(cell => <option value={cell} key={cell}>{cell}</option> )
+    }
+    
+  }
 
   function SubmitFormData() { 
 
   }
-
   function handleChange(event) {
     const { name, value } = event.target
     setFormData((prevformData) => {
@@ -45,61 +59,59 @@ export default function FormData() {
             onChange ={handleChange}
           >
             <option >--selectProvince--</option>
-            <option value="north">North</option>
-            <option value="south">South</option>
-            <option value="east">East</option>
-            <option value="west">West</option>
-            <option value="kigali">KigaliCity</option>
+            {provinces}
           </Form.Select>
         </Col>
         <Col className="col-md-3 col-12">
-          {formData.province.length > 0 && <Form.Select
+          {selectDistrict(formData.province) && <Form.Select
             name="district"
             value={formData.district}
             onChange={handleChange}
           >
             <option>--select District--</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {district}
           </Form.Select>}
         </Col>
         <Col className="col-md-3 col-12">
-          {formData.district.length > 0 &&<Form.Select
+          {formData.district && selectSectors(formData.province, formData.district) && <Form.Select
             name="sector"
             value={formData.sector}
             onChange={handleChange}
           >
             <option>--select sector--</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {sectors}
           </Form.Select>}
         </Col>
         <Col className="col-md-3 col-12">
-          {formData.sector.length > 0 &&<Form.Select
+          {formData.sector && selectCell(formData.province, formData.district, formData.sector) &&<Form.Select
             name="cell"
             value={formData.cell}
             onChange={handleChange}
           >
             <option>--select cell--</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {cell}
           </Form.Select>}
-        </Col> 
+        </Col>
       </Row>
       <Row className="d-flex mb-3 mx-auto align-items-center">
         <Col className="col-6 mb-0 mx-auto">
           <Form.Group >
             <Form.Label className="timelabel" htmlFor="startDate">Start Date</Form.Label>
-            <Form.Control type="date" id="startDate" />
+            <Form.Control
+              type="date" id="startDate"
+              name="startDate"
+              value ={formData.startDate}
+            />
           </Form.Group>
         </Col>
         <Col className="col-6 mb-0 mx-auto">
           <Form.Group >
             <Form.Label className="timelabel" htmlFor="EndDate">End Date</Form.Label>
-            <Form.Control type="date" id="EndDate" />
+            <Form.Control
+              type="date" id="EndDate"
+              name="endDate"
+              value={formData.endDate}
+            />
           </Form.Group>
         </Col>
       </Row>
