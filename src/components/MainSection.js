@@ -2,9 +2,9 @@ import React from "react"
 import { Row, Col} from "react-bootstrap";
 import LandingPageCards from "./LandingPageCards";
 import Form from './Form'
-import uvligthdata from '../data/Uvlightdata'
+import uvData  from '../assets/data/Uvlightdata'
 
-const Uvdata = uvligthdata.map(function (data) { 
+const Uvdata = uvData.map((data) => { 
   return < LandingPageCards 
     key={data.id}
     initialtime={data.initialtime}

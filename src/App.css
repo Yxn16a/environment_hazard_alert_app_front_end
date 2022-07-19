@@ -25,7 +25,7 @@
 .contentcontainer{
   min-height: 100vh;
   background-color: #222823;
-  background-image: url("./images/galaxy.jpg"); 
+  background-image: url("./assets/images/galaxy.jpg"); 
   background-image: cover;
 }
 
@@ -75,6 +75,13 @@ align-items: center;
 .warningcard{
 display: flex;
 height: auto;
+}
+.card--data {
+  border: 1px solid black;
+  border-radius:2.5px;
+  align-items: center;
+ font-size: 14px;
+ font-weight: bold;
 }
 .cardimage{
   width: fit-content;

@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row,Card} from "react-bootstrap";
 import Main from "./MainSection"
 import NavBar from "./HeaderSection";
-import Footer from "./FooterSection"
+// import Footer from "./FooterSection"
 
 export default function PageContent() {
     return (
@@ -12,7 +12,7 @@ export default function PageContent() {
                     <Card.Body className ="cardbody m-auto p-0.5">
                             <NavBar/> 
                             <Main/>
-                            <Footer/> 
+                            {/* <Footer/>  */}
                     </Card.Body>
                 </Card>
             </Row>
