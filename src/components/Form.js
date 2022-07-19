@@ -9,7 +9,7 @@ export default function FormData() {
     district: "", 
     sector: "", 
     cell: "",
-    startDate: Todaysdate,
+    startDate:Todaysdate,
     endDate:""
   })
   let district; 
@@ -19,22 +19,34 @@ export default function FormData() {
   const provinces = Provinces().map(prov => <option value={prov} key={prov}>{prov}</option>)
   
   function selectDistrict(province) {
-    if (province) {
-      return district = Districts(province).map(district => <option value={district} key={district}>{district}</option>);
+    try {
+      if (province) {
+        return district = Districts(province).map(district => <option value={district} key={district}>{district}</option>);
+      }
+     } catch (e) { 
+      return console.error(e);
     }
   }
 
- function selectSectors(province, district) {
-    if (province && district) {
-      return sectors =Sectors( province,district ).map(sector => <option value={sector} key={sector}>{sector}</option>)
-    }   
+  function selectSectors(province, district) {
+    try {
+      if (province && district) {
+        return sectors = Sectors(province, district).map(sector => <option value={sector} key={sector}>{sector}</option>)
+      }
+    } catch (e) { 
+      console.error(e)
+    }
+     
   }
 
   function selectCell(province, distric, sector) {
-    if (province && distric && sector) { 
-      return cell = Cells(province, distric, sector).map(cell => <option value={cell} key={cell}>{cell}</option> )
+    try {
+      if (province && distric && sector) {
+        return cell = Cells(province, distric, sector).map(cell => <option value={cell} key={cell}>{cell}</option>)
+      }
+    } catch (e) { 
+      console.error(e); 
     }
-    
   }
 
   function SubmitFormData() { 
@@ -93,14 +105,14 @@ export default function FormData() {
           </Form.Select>}
         </Col>
       </Row>
-      <Row className="d-flex mb-3 mx-auto align-items-center">
+      {formData.cell && <Row className="d-flex mb-3 mx-auto align-items-center">
         <Col className="col-6 mb-0 mx-auto">
           <Form.Group >
             <Form.Label className="timelabel" htmlFor="startDate">Start Date</Form.Label>
             <Form.Control
               type="date" id="startDate"
               name="startDate"
-              value ={formData.startDate}
+              value={formData.startDate}
             />
           </Form.Group>
         </Col>
@@ -114,7 +126,7 @@ export default function FormData() {
             />
           </Form.Group>
         </Col>
-      </Row>
+      </Row>}
       <Row className="d-flex mx-auto">
         <Col className="col-12">
           <Button variant="primary" type="submit">

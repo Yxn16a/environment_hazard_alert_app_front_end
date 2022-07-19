@@ -16,12 +16,17 @@ export default function LandingPageCards(props) {
                             <Card.Title>UV Light Hazard</Card.Title>
                             <Card.Text>
                                 <Row>
-                                    <Col>From Time:{props.initialtime}</Col>
-                                    <Col>To Time:{props.finaltime}</Col>
+                                    <Col className="card--data col-12">
+                                        <span className="ml-1 ">From Time: {props.initialtime}</span>
+                                       <span className="ml-1"> To Time:  {props.finaltime}</span>
+                                    </Col>
                                 </Row>   
                                 <Row>
-                                    <Col>UV Quantity:{props.uvquantity}</Col>
-                                    <Col>Measures:{props.measures}</Col>
+                                    <Col className="card--data col-12">UV Quantity:<span className="ml-1">{props.uvquantity}</span></Col>
+                                
+                                </Row>
+                                <Row>
+                                    <Col className="card--data col-12">Measures:<span className="ml-1">{props.measures}</span></Col>
                                 </Row>
                             </Card.Text>
                             <Button variant="primary">Click here for more information</Button>
@@ -35,11 +40,23 @@ export default function LandingPageCards(props) {
                             <Card.Title>LandSlides Hazard</Card.Title>
                             <Card.Text>
                             <Row>
-                                    <Col>From Time</Col>
-                                    <Col>To Time</Col>
-                                </Row>   
+                                    <Col className="card--data col-12 d-flext justify-content-center">
+                                    <span className="ml-1 ">From Time: {props.initialtime}</span>
+                                       <span className="ml-1"> To Time:  {props.finaltime}</span>
+                                    </Col>
+                                    
+                                </Row>  
                                 <Row>
-                                    <Col>Rain Amount</Col>
+                                    <Col className="card--data col-12 text-lg-center text-sm-left">
+                                        <span>LandSlides May Happen:{props.initialtime}</span>
+                                        <span className="mx-1">Km</span><span>From You</span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    
+                                    <Col className="card--data col-12">Measures:
+                                        <span className="ml-1">Contact Local Leaders</span>
+                                    </Col>
                                 </Row>
                             </Card.Text>
                             <Button variant="primary">Click here for more information</Button>
@@ -52,12 +69,22 @@ export default function LandingPageCards(props) {
                         <Card.Body>
                             <Card.Title>Floods Hazards</Card.Title>
                             <Card.Text>
-                            <Row>
-                                    <Col>From Time</Col>
-                                    <Col>To Time</Col>
-                                </Row>   
                                 <Row>
-                                    <Col>Rain Amount</Col>
+                                    <Col className="card--data col-12">
+                                    <span className="ml-1 ">From Time: {props.initialtime}</span>
+                                       <span className="ml-1"> To Time:  {props.finaltime}</span>
+                                    </Col>
+                                </Row>  
+                                <Row>
+                                    <Col className="card--data col-12">
+                                        <span>Floods May Happen:{props.initialtime}</span>
+                                        <span className="mx-1">Km</span><span>From You</span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="card--data col-12">Measures:
+                                        <span className="ml-1">Contact Local Leaders</span>
+                                    </Col>
                                 </Row>
                             </Card.Text>
                             <Button variant="primary">Click here for more information</Button>
