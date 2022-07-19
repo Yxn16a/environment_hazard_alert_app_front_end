@@ -4,7 +4,7 @@ import LandingPageCards from "./LandingPageCards";
 import Form from './Form'
 import uvData  from '../assets/data/Uvlightdata'
 
-const Uvdata = uvData.map(function (data) { 
+const Uvdata = uvData.map((data) => { 
   return < LandingPageCards 
     key={data.id}
     initialtime={data.initialtime}
