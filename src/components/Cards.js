@@ -7,9 +7,8 @@ import { Row, Col, Button, Card } from "react-bootstrap";
 export default function LandingPageCards(props) { 
     return (
         <div>
-            {/* col-sm-12 className ="d-flex justify-content-center align-items-center mx-auto" */}
-            <Row>
-                <Col className ="col-md-4 col-12 my-lg-0 my-sm-3">
+            <Row className="mx-auto">
+                <Col className ="col-md-4 col-12 my-lg-0 my-sm-3 mx-auto">
                     <Card className="warningcard">
                         <Card.Img className ="cardimage" variant="top" src={uvlight} />
                         <Card.Body>
@@ -23,7 +22,6 @@ export default function LandingPageCards(props) {
                                 </Row>   
                                 <Row>
                                     <Col className="card--data col-12">UV Quantity:<span className="ml-1">{props.uvquantity}</span></Col>
-                                
                                 </Row>
                                 <Row>
                                     <Col className="card--data col-12">Measures:<span className="ml-1">{props.measures}</span></Col>
@@ -33,7 +31,7 @@ export default function LandingPageCards(props) {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col className ="col-md-4 col-12 my-lg-0 my-sm-3">
+                <Col className ="col-md-4 col-12 my-lg-0 my-sm-3 mx-auto">
                     <Card className="warningcard">
                         <Card.Img className ="cardimage" variant="top" src={landslides} />
                         <Card.Body>
@@ -63,7 +61,7 @@ export default function LandingPageCards(props) {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col className ="col-md-4col-12 my-lg-0 my-sm-3">
+                <Col className ="col-md-4 col-12 my-lg-0 my-sm-3 mx-auto">
                     <Card  className="warningcard">
                         <Card.Img className ="cardimage"variant="top" src={floods} />
                         <Card.Body>
